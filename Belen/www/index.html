@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estrella del Belen</title>
+<style>
+	div	{border-style:solid; border-width:0px;}
+	/*input[type=range]{-webkit-transform:rotate(90deg);}*/
+	#color {background-color:rgb(0,255,0); height: 60px; width: 60px;border-style:solid; border-width:1px; margin: 5px;}
+</style>
+<script type="text/javascript">
+    function sendR() {
+		valorR = document.getElementById("R").value;
+		url = "http://192.168.1.19/arduino/R/"+valorR;
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", url, true);
+		xhttp.send();
+    }
+    function sendG() {
+		valorG = document.getElementById("G").value;
+		url = "http://192.168.1.19/arduino/G/"+valorG;
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", url, true);
+		xhttp.send();
+    }
+    function sendB() {
+		valorB = document.getElementById("B").value;
+		url = "http://192.168.1.19/arduino/B/"+valorB;
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", url, true);
+		xhttp.send();
+    }
+    function sendWait() {
+		valorWait = document.getElementById("wait").value;
+		url = "http://192.168.1.19/arduino/wait/"+valorWait;
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", url, true);
+		xhttp.send();
+    }
+</script>
+</head>
+
+<body>
+<div id = "CR">
+R
+<input id = "R" type="range" name="R" min="0" max="255" step="1" value="0" onchange="sendR()">
+</div>
+<div id = "CG">
+G
+<input id = "G" type="range" name="G" min="0" max="255" step="1" value="0" onchange="sendG()">
+</div>
+<div id = "CB">
+B
+<input id = "B" type="range" name="B" min="0" max="255" step="1" value="75" onchange="sendB()">
+</div>
+<div id = "Cwait">
+Velocidad
+<input id = "wait" type="range" name="wait" min="10" max="200" step="1" value="50" onchange="sendWait()">
+</div>
+</body>
+
+</html>
